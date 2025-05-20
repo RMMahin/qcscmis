@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Quantaa Entry</title>
+</head>
+<body>
+<h1 th:text="${quantaa.id > 0} ? 'Upadate Quantaa Information' : 'Create New Quantaa'"></h1>
+<form th:object="${quantaa}" method="post" action="/add-quantaa">
+    <label for="name">Name</label>
+    <input type="text" id="name" th:field="*{name}">
+    <input type="hidden" th:field="*{id}">
+    <br>
+    <br>
+    <label for="quantaa-id">Quantaa ID</label>
+    <input type="text" id="quantaa-id" th:field="*{quantaId}">
+    <br>
+    <br>
+    <label for="cls">Class</label>
+    <input type="text" id="cls" th:field="*{cls}">
+    <br>
+    <br>
+    <label for="blood-type">Blood Type</label>
+    <input type="text" id="blood-type" th:field="*{bloodType}">
+    <br>
+    <br>
+    <button type="submit" th:text="${quantaa.id > 0} ? 'Update' : 'Save'"></button>
+    <button type="submit" th:if="${quantaa.id != null}" name="action" value="delete">Delete</button>
+</form>
+</body>
+</html>

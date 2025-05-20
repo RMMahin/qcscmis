@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Quantaa List</title>
+</head>
+<body>
+<div>
+    <form method="get">
+        <h1>Quantaa List</h1>
+        <input name="key" type="text">
+        <button type="submit">Search</button>
+    </form>
+</div>
+<table>
+    <tr>
+        <th>Sl.</th>
+        <th>Name</th>
+        <th>Quantaa ID</th>
+        <th>Class</th>
+        <th>Blood Type</th>
+        <th>Action</th>
+    </tr>
+    <tr th:each="quantaa : ${quantaaList}">
+        <td th:text="${quantaaStat.index + 1}"></td>
+        <td th:text="${quantaa.name}"></td>
+        <td th:text="${quantaa.quantaId}"></td>
+        <td th:text="${quantaa.cls}"></td>
+        <td th:text="${quantaa.bloodType}"></td>
+        <td>
+            <a th:href="@{/quantaa(id=${quantaa.id})}">Open</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
